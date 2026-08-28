@@ -42,34 +42,7 @@ O fluxo de processamento de dados e análise técnica foi implementado em Python
 
 ---
 
-## 4. Estrutura do Repositório e Arquivos CSV
-
-O repositório está organizado conforme a seguinte estrutura de arquivos:
-
-```
-.
-├── Desafio_Final_Energia_ONS_API_Final.ipynb   # Notebook principal com pipeline completo
-├── README.md                                    # Documentação técnica do projeto
-├── dados_carga_sp_completo.csv                  # Dataset bruto tratado retornado da API
-├── consumo_diario_total.csv                     # Agregação do consumo total diário (MWh)
-├── perfil_medio_horario.csv                    # Carga média semi-horária/horária típica
-├── impacto_mmgd_horario.csv                     # Injeção e penetração relativa da MMGD
-└── comparativo_dias_uteis_fim_semana.csv        # Contraste de carga entre tipos de dia
-```
-
-### Detalhamento dos Arquivos CSV de Saída
-
-| Arquivo CSV | Separador | Descrição do Conteúdo |
-| :--- | :---: | :--- |
-| `dados_carga_sp_completo.csv` | `,` | Série temporal completa (336 registros de 30 min) contendo carga global, supervisionada, não supervisionada e MMGD. |
-| `consumo_diario_total.csv` | `,` | Consolidação do consumo diário em MWh (integração da potência média semi-horária no tempo). |
-| `perfil_medio_horario.csv` | `,` | Média, desvio padrão e valores extremos (mín/máx) da carga agregada por horário do dia. |
-| `impacto_mmgd_horario.csv` | `,` | Mapeamento da injeção de geração distribuída solar/eólica por horário e seu efeito de abatimento na curva global. |
-| `comparativo_dias_uteis_fim_semana.csv` | `,` | Matriz comparativa da demanda elétrica segmentada entre dias úteis e finais de semana. |
-
----
-
-## 5. Principais Indicadores e Dicionário de Variáveis
+## 4. Principais Indicadores e Dicionário de Variáveis
 
 O conjunto de dados fornecido pelo ONS abrange os seguintes campos principais:
 
@@ -82,7 +55,7 @@ O conjunto de dados fornecido pelo ONS abrange os seguintes campos principais:
 
 ---
 
-## 6. Resultados e Discussões Técnicas
+## 5. Resultados e Discussões Técnicas
 
 1. **Comportamento Curva "Duck Curve" (Efeito MMGD)**: A inclusão do parâmetro `val_cargammgd` evidencia a acentuada curva do pato durante os períodos de maior irradiação solar (entre 10h00 e 16h00). A geração distribuída alivia a demanda da rede supervisionada no meio do dia, porém gera uma rampa de subida pronunciada no período do crepúsculo (18h00–21h00), momento de pico de consumo residencial aliado à perda de geração solar.
 2. **Variabilidade Semanal**: Observa-se uma redução substancial da carga global nos dias de final de semana (sábado e domingo), explicada pela paralisação/redução de atividades do setor industrial e comercial de grande porte no estado de São Paulo.
@@ -90,7 +63,7 @@ O conjunto de dados fornecido pelo ONS abrange os seguintes campos principais:
 
 ---
 
-## 7. Requisitos e Instruções de Execução
+## 6. Requisitos e Instruções de Execução
 
 ### Pré-requisitos
 Para executar o notebook e reproduzir os arquivos do projeto, certifique-se de possuir o **Python 3.8+** instalado juntamente com as bibliotecas:
@@ -109,6 +82,6 @@ pip install pandas matplotlib seaborn requests
 
 ---
 
-## 8. Referências Técnicas
+## 7. Referências Técnicas
 * **ONS — Operador Nacional do Sistema Elétrico**: Portal de Dados Abertos (Dataset Carga de Energia Verificada). Disponível em: <https://dados.ons.org.br/dataset/carga-energia-verificada>.
 * **Documentação da API ONS**: <https://apicarga.ons.org.br/prd/cargaverificada>.
